@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <body>
+       
+       <form action="/request.php" >
+
+        <input type="text" name="firstname" >
+        <input type="button" onclick="doSomething ()" value="Search">
+
+        </form>
+
+       <script >
+      // var fname = document.getElementById("show").value;
+        var httpRequest= new XMLHttpRequest();
+       // var he = "request.php?";
+       var str= "definition";
+       
+        //var url= "request.php?q=ajax";
+       /* httpRequest.open("GET","request.php?q="+str, true);
+        httpRequest.send();
+        httpRequest.onreadystatechange = doSomething;*/
+
+         function doSomething() {
+             var httpRequest= new XMLHttpRequest();
+             httpRequest.onreadystatechange = function(){
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          // 
+             if (httpRequest.status === 200) {
+             var response = httpRequest.responseText.split('"');
+             //document.write(response[2]);
+            //  if (str== "definition"){
+             alert(response[1] + ":   " + response[3]);
+             } else {
+             alert('There was a problem with the request.');
+             }
+            }
+         //   }    
+             }
+            httpRequest.open("GET","request.php?q="+str, true);
+            httpRequest.send();
+        }
+
+       </script>
+   </body>
+   
+</html>
