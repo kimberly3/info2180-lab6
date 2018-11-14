@@ -2,18 +2,46 @@
 <html>
    <body>
        
-       <form action="/request.php" >
+      
+       
+       <form action="#" onsubmit="doSomething()">
 
-        <input type="text" name="firstname" >
-        <input type="button" onclick="doSomething ()" value="Search">
+        <input type="text" name="q" id="fname">
+        <input type="submit"  value="Search">
 
         </form>
-
+       
+       <style>
+        .are {
+         padding: 32px 64px;
+         background-color: #4CAF50;
+        }
+       </style>
+       
        <script >
-      // var fname = document.getElementById("show").value;
-        var httpRequest= new XMLHttpRequest();
+       
+       /*function checkfor(){
+        if (document.getElementById('fname').value == "bar"){
+         doSomething();
+        }
+        -----------------------------------------------
+         <div class="are">
+         <h1>Web Dictionary</h1>
+        </div>
+        <br>
+       <p> Look up any word (ajax, definition, bar, html, css, 
+       javascript or php) </p>
+        --------------------------------------
+        
+        
+        else{
+           alert('There was a problem with the request.');
+        }
+       }*/
+      // var fname = document.getElementById("show").value;   onclick="doSomething()"
+      //  var httpRequest= new XMLHttpRequest();
        // var he = "request.php?";
-       var str= "definition";
+      var str;
        
         //var url= "request.php?q=ajax";
        /* httpRequest.open("GET","request.php?q="+str, true);
@@ -27,12 +55,26 @@
           // 
              if (httpRequest.status === 200) {
              var response = httpRequest.responseText.split('"');
-             //document.write(response[2]);
-            //  if (str== "definition"){
+             //document.write(response);
+             if (document.getElementById('fname').value == "definition"){
+               str="definition"; 
              alert(response[1] + ":   " + response[3]);
-             } else {
-             alert('There was a problem with the request.');
-             }
+             
+              }else{
+           alert('Dont have a definition');
+        }
+              
+            /*else  if (document.getElementById('fname').value == "bar"){
+               str="bar"; 
+               document.write(response[5] + ":   " + response[7]);
+             //alert(response[5] + ":   " + response[7]);
+             
+              }
+             else if (document.getElementById('fname').value == "ajax"){
+               str="ajax"; 
+             alert(response[9] + ":   " + response[11]);
+              }*/
+              } 
             }
          //   }    
              }
